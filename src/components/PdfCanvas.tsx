@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import * as pdfjsLib from "pdfjs-dist";
+import styles from "./PdfCanvas.module.scss";
+import { cn } from "../utils/cn";
 
 interface PdfCanvasProps {
     pdf: pdfjsLib.PDFDocumentProxy;
@@ -33,11 +35,7 @@ export const PdfCanvas: React.FC<PdfCanvasProps> = ({ pdf, pageNumber }) => {
         <canvas
             ref={canvasRef}
             id={`page-${pageNumber}`}
-            style={{
-                display: "block",
-                marginLeft: "auto",
-                marginRight: "auto",
-            }}
+            className={cn(styles["pdf-canvas"])}
         />
     );
 };
